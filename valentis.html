@@ -32,7 +32,7 @@
   --glass: rgba(255,255,255,.7); --glass-border: rgba(255,255,255,.5);
   --transition: .3s cubic-bezier(.4,0,.2,1);
 }
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth;scroll-padding-top:80px;font-size:16px}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   color:var(--slate-8);line-height:1.7;background:var(--white);overflow-x:hidden;
@@ -102,8 +102,30 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
   content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
   background:#60a5fa;border-radius:1px;transition:width .3s cubic-bezier(.4,0,.2,1);
 }
-.nav-links a:hover{color:#60a5fa}
-.nav-links a:hover::after{width:100%}
+.nav-links a:hover,.nav-links a.active{color:#60a5fa}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links>li{position:relative}
+.nav-dropdown{
+  display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);
+  background:#1a1f2e;border:1px solid rgba(255,255,255,.08);border-radius:10px;
+  padding:8px 0;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,.3);
+  list-style:none;z-index:910;
+}
+.nav-dropdown::before{
+  content:'';position:absolute;top:-14px;left:0;right:0;height:14px;
+}
+.nav-dropdown::after{
+  content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  border-left:6px solid transparent;border-right:6px solid transparent;
+  border-bottom:6px solid rgba(255,255,255,.08);
+}
+.nav-links>li:hover .nav-dropdown{display:block}
+.nav-dropdown a{
+  display:block;padding:8px 20px;font-size:.78rem;color:#94a3b8;
+  white-space:nowrap;transition:all .2s;
+}
+.nav-dropdown a::after{display:none}
+.nav-dropdown a:hover{color:#60a5fa;background:rgba(96,165,250,.08)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:20px;height:1.5px;background:#94a3b8;margin:5px 0;transition:all .3s;border-radius:1px}
 
@@ -396,8 +418,17 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
     <a href="#" class="nav-logo"><span>V</span>alentis™</a>
     <ul class="nav-links">
       <li><a href="#problems" data-i18n="nav_problems">Why Valentis</a></li>
+      <li><a href="#values" data-i18n="nav_values">Value</a></li>
       <li><a href="#features" data-i18n="nav_features">Features</a></li>
       <li><a href="#modules" data-i18n="nav_modules">AI Modules</a></li>
+      <li>
+        <a href="valentis-demo.html" data-i18n="nav_demo">Demo</a>
+        <ul class="nav-dropdown">
+          <li><a href="valentis-demo.html#material" data-i18n="nav_sub_material">Material & Tools</a></li>
+          <li><a href="valentis-demo.html#load" data-i18n="nav_sub_load">Load Definition</a></li>
+          <li><a href="valentis-demo.html#ai" data-i18n="nav_sub_ai">AI Modules</a></li>
+        </ul>
+      </li>
     </ul>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('ko')">KO</button>
@@ -1088,7 +1119,8 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
 /* ── i18n ── */
 const T = {
   ko: {
-    nav_problems:'Why Valentis', nav_features:'기능', nav_modules:'AI 모듈',
+    nav_problems:'Why Valentis', nav_values:'Value', nav_features:'기능', nav_modules:'AI 모듈', nav_demo:'Demo',
+    nav_sub_load:'하중 정의', nav_sub_material:'재료/도구', nav_sub_ai:'AI 모듈',
     hero_badge:'Engineering Analysis Platform',
     hero_title:'계산부터 의사결정까지 <span class="text-gradient">하나로.</span>',
     hero_desc:'하중 조건은 Excel, 물성치는 핸드북, 결과 분석은 또 다른 툴...<br>복잡하게 나뉜 작업 속에서<br>정작 중요한 엔지니어링 판단에 집중하지 못하고 계신가요?<br><strong>Valentis</strong>가 그 시간을 돌려드립니다.',
@@ -1132,7 +1164,8 @@ const T = {
     cta_title:'반복 작업은 Valentis에게 맡기고,<br>엔지니어링 판단에 집중하세요.', cta_desc:'시뮬레이션 전후의 모든 과정을, 하나의 플랫폼에서.', cta_btn:'지금 시작하기'
   },
   en: {
-    nav_problems:'Why Valentis', nav_features:'Features', nav_modules:'AI Modules',
+    nav_problems:'Why Valentis', nav_values:'Value', nav_features:'Features', nav_modules:'AI Modules', nav_demo:'Demo',
+    nav_sub_load:'Load Definition', nav_sub_material:'Material & Tools', nav_sub_ai:'AI Modules',
     hero_badge:'Engineering Analysis Platform',
     hero_title:'From Calculation to Decision, <span class="text-gradient">All in One.</span>',
     hero_desc:'Loads in Excel, materials in handbooks, analysis in another tool...<br>Lost in fragmented workflows,<br>too little time left for the engineering judgment that truly matters?<br><strong>Valentis</strong> gives you that time back.',
@@ -1176,7 +1209,8 @@ const T = {
     cta_title:'Let Valentis handle the repetitive work.<br>Focus on engineering judgment.', cta_desc:'Everything before and after simulation, in one platform.', cta_btn:'Get Started'
   },
   zh: {
-    nav_problems:'Why Valentis', nav_features:'功能', nav_modules:'AI 模块',
+    nav_problems:'Why Valentis', nav_values:'Value', nav_features:'功能', nav_modules:'AI 模块', nav_demo:'Demo',
+    nav_sub_load:'载荷定义', nav_sub_material:'材料/工具', nav_sub_ai:'AI 模块',
     hero_badge:'Engineering Analysis Platform',
     hero_title:'从计算到决策，<span class="text-gradient">一站式平台。</span>',
     hero_desc:'载荷用Excel，材料查手册，分析又换工具...<br>在碎片化的工作流中，<br>真正重要的工程判断，还剩多少时间？<br><strong>Valentis</strong>帮您找回那些时间。',
@@ -1309,6 +1343,18 @@ document.getElementById('hamburger').addEventListener('click', () => {
     });
   }
 });
+
+/* ── Scroll spy — highlight active nav link ── */
+const spySections = document.querySelectorAll('section[id], [id="modules"]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll', () => {
+  const top = window.scrollY + 120;
+  let currentId = '';
+  spySections.forEach(s => { if (s.offsetTop <= top) currentId = s.id; });
+  navAnchors.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+  });
+}, { passive: true });
 </script>
 </body>
 </html>
