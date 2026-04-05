@@ -267,7 +267,7 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
 .value-card p{font-size:.84rem;color:var(--slate-6);line-height:1.65;overflow-wrap:break-word}
 
 /* ── Features ── */
-.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding:72px 0}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;padding:72px 0}
 .feature-row:not(:last-child){border-bottom:1px solid var(--slate-2)}
 .feature-row.reverse .feature-content{order:2}
 .feature-row.reverse .feature-visual{order:1}
@@ -424,8 +424,10 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
       <li>
         <a href="valentis-demo.html" data-i18n="nav_demo">Demo</a>
         <ul class="nav-dropdown">
-          <li><a href="valentis-demo.html#material" data-i18n="nav_sub_material">Material & Tools</a></li>
+          <li><a href="valentis-demo.html#material" data-i18n="nav_sub_material">Material</a></li>
           <li><a href="valentis-demo.html#load" data-i18n="nav_sub_load">Load Definition</a></li>
+          <li><a href="valentis-demo.html#tools" data-i18n="nav_sub_tools">Curve Digitizer</a></li>
+          <li><a href="valentis-demo.html#characterization" data-i18n="nav_sub_char">Characterization</a></li>
           <li><a href="valentis-demo.html#ai" data-i18n="nav_sub_ai">AI Modules</a></li>
         </ul>
       </li>
@@ -753,10 +755,10 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
       </div>
     </div>
 
-    <!-- Data Tools -->
+    <!-- Curve Digitizer -->
     <div class="feature-row reveal">
       <div class="feature-content">
-        <div class="badge badge-blue">Data Tools</div>
+        <div class="badge badge-blue">Curve Digitizer</div>
         <h2 data-i18n="feat3_title">과거 그래프도 데이터로 되살립니다</h2>
         <p data-i18n="feat3_desc">원본 데이터가 유실된 과거 보고서, 논문, 시험 성적서의 그래프가 있으신가요?<br>이미지 위에 점을 찍으면 수치 데이터로 복원됩니다.<br>재시험 없이 레거시 자료를 재활용하세요.</p>
         <ul class="feature-list">
@@ -849,6 +851,113 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
             <span style="display:flex;align-items:center;gap:5px;font-size:.58rem;color:var(--slate-3)"><span style="display:inline-block;width:14px;height:1.5px;background:rgba(255,255,255,.2);border-radius:1px;border-top:1px dashed rgba(255,255,255,.3)"></span> Original</span>
             <span style="display:flex;align-items:center;gap:5px;font-size:.58rem;color:var(--slate-3)"><span style="display:inline-block;width:14px;height:2.5px;background:var(--blue-400);border-radius:1px"></span> Spline Fit</span>
             <span style="display:flex;align-items:center;gap:5px;font-size:.58rem;color:var(--slate-3)"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;border:1.5px solid var(--blue-400);background:transparent"></span> Points</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Characterization — Mass Participation -->
+    <div class="feature-row reverse reveal">
+      <div class="feature-content">
+        <div class="badge badge-blue">Dynamic Characterization</div>
+        <h2 data-i18n="feat_mass_title">내 모델, 충분한 모드를 포함하고 있을까?</h2>
+        <p data-i18n="feat_mass_desc">모달 해석 후 "모드를 몇 개까지 포함해야 하는가?"는 항상 남는 질문입니다. Mass Participation은 각 모드의 질량 참여율과 누적참여율을 즉시 시각화하여, 해석에 포함할 모드 수를 정량적으로 판단할 수 있게 합니다.</p>
+        <ul class="feature-list">
+          <li><span class="feature-check">✓</span><span data-i18n="feat_mass_li1">CSV 드래그 앤 드롭으로 모달 결과 즉시 로드</span></li>
+          <li><span class="feature-check">✓</span><span data-i18n="feat_mass_li2">모드별 질량 참여율 + 누적참여율 차트</span></li>
+          <li><span class="feature-check">✓</span><span data-i18n="feat_mass_li3">80% 미달성 시 빨간색 경고로 부족한 모드 즉시 식별</span></li>
+          <li><span class="feature-check">✓</span><span data-i18n="feat_mass_li4">Dominant Mode 리포트로 핵심 모드 자동 식별</span></li>
+        </ul>
+      </div>
+      <div class="feature-visual" style="background:linear-gradient(145deg,var(--slate-9),#0c1222);border-color:rgba(255,255,255,.06)">
+        <div class="mock-ui" style="background:transparent;box-shadow:none;border:none;padding:4px">
+          <!-- Header -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:28px;height:28px;border-radius:8px;background:rgba(59,130,246,.15);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--blue-400);font-weight:700">▥</div>
+              <div>
+                <div style="font-size:.72rem;font-weight:700;color:var(--white)">Mass Participation</div>
+                <div style="font-size:.55rem;color:var(--slate-3)">20 Modes · X / Y / Z Direction</div>
+              </div>
+            </div>
+            <div style="font-size:.5rem;padding:3px 8px;border-radius:4px;background:rgba(16,185,129,.12);color:#10b981;font-weight:600">Loaded</div>
+          </div>
+          <!-- Dual-axis: X MPR (red line+markers, left Y) + Cumulative (green line, right Y) -->
+          <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:12px 12px 8px;margin-bottom:10px">
+            <div style="font-size:.55rem;color:var(--slate-3);margin-bottom:6px;font-weight:600;letter-spacing:.04em;text-transform:uppercase">X Direction — MPR &amp; Cumulative</div>
+            <svg viewBox="0 0 300 95" style="width:100%;height:80px">
+              <!-- Grid -->
+              <line x1="28" y1="10" x2="272" y2="10" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+              <line x1="28" y1="30" x2="272" y2="30" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+              <line x1="28" y1="50" x2="272" y2="50" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+              <line x1="28" y1="70" x2="272" y2="70" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+              <!-- X axis -->
+              <line x1="28" y1="82" x2="272" y2="82" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+              <!-- Left Y axis label (MPR, red) -->
+              <text x="6" y="10" fill="rgba(220,38,38,.45)" font-size="4.5" font-family="Inter,sans-serif" text-anchor="start">MPR</text>
+              <!-- Right Y axis label (Cum, green) -->
+              <text x="294" y="10" fill="rgba(16,185,129,.45)" font-size="4.5" font-family="Inter,sans-serif" text-anchor="end">Cum</text>
+              <!-- 80% cumulative threshold (dashed) -->
+              <line x1="28" y1="18" x2="272" y2="18" stroke="rgba(239,68,68,.3)" stroke-width=".8" stroke-dasharray="3,3"/>
+              <text x="275" y="20" fill="rgba(239,68,68,.4)" font-size="4.5" font-family="Inter,sans-serif">80%</text>
+              <!--
+                20 modes, X spacing: mode 1=34, step ~12.5px → mode 20=271
+                MPR data: mode 3 spike(0.35), mode 9 spike(0.25), rest small(0.01~0.05)
+                Y range 0~0.40 mapped to 82(0)→10(0.40)  → scale: val*180
+                Cum range 0~1.0 mapped to 82(0)→10(1.0) → scale: val*72
+              -->
+              <!-- X MPR line (red) — spikes at mode 3 and 9 -->
+              <polyline points="34,78 46,76 59,15 71,76 84,78 96,77 109,78 121,77 134,37 146,77 159,78 171,78 184,77 196,78 209,78 221,78 234,78 246,78 259,79 271,79" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- MPR markers (highlight spikes) -->
+              <circle cx="59"  cy="15" r="2.5" fill="#dc2626"/>
+              <circle cx="134" cy="37" r="2.5" fill="#dc2626"/>
+              <circle cx="34"  cy="78" r="1.5" fill="#dc2626" opacity=".5"/><circle cx="46"  cy="76" r="1.5" fill="#dc2626" opacity=".5"/>
+              <circle cx="71"  cy="76" r="1.5" fill="#dc2626" opacity=".5"/><circle cx="84"  cy="78" r="1.5" fill="#dc2626" opacity=".5"/>
+              <circle cx="96"  cy="77" r="1.5" fill="#dc2626" opacity=".5"/><circle cx="109" cy="78" r="1.5" fill="#dc2626" opacity=".5"/>
+              <circle cx="121" cy="77" r="1.5" fill="#dc2626" opacity=".5"/><circle cx="146" cy="77" r="1.5" fill="#dc2626" opacity=".5"/>
+              <circle cx="159" cy="78" r="1.5" fill="#dc2626" opacity=".5"/><circle cx="171" cy="78" r="1.5" fill="#dc2626" opacity=".5"/>
+              <circle cx="184" cy="77" r="1.5" fill="#dc2626" opacity=".5"/><circle cx="196" cy="78" r="1.5" fill="#dc2626" opacity=".5"/>
+              <circle cx="271" cy="79" r="1.5" fill="#dc2626" opacity=".5"/>
+              <!-- Cumulative line (green) — jumps at mode 3 and 9, gradual elsewhere -->
+              <polyline points="34,79 46,76 59,50 71,47 84,44 96,42 109,40 121,38 134,20 146,18 159,17 171,16 184,15.5 196,15 209,14.5 221,14 234,13.5 246,13 259,12.5 271,12" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Cumulative markers (key points) -->
+              <circle cx="59"  cy="50" r="2" fill="#10b981"/>
+              <circle cx="134" cy="20" r="2" fill="#10b981"/>
+              <circle cx="271" cy="12" r="2" fill="#10b981"/>
+              <!-- Mode labels (selected) -->
+              <text x="34"  y="90" fill="rgba(255,255,255,.2)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">1</text>
+              <text x="59"  y="90" fill="rgba(255,255,255,.3)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">3</text>
+              <text x="96"  y="90" fill="rgba(255,255,255,.2)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">6</text>
+              <text x="134" y="90" fill="rgba(255,255,255,.3)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">9</text>
+              <text x="184" y="90" fill="rgba(255,255,255,.2)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">13</text>
+              <text x="234" y="90" fill="rgba(255,255,255,.2)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">17</text>
+              <text x="271" y="90" fill="rgba(255,255,255,.2)" font-size="5" font-family="Inter,sans-serif" text-anchor="middle">20</text>
+            </svg>
+          </div>
+          <!-- Legend -->
+          <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px">
+            <span style="display:flex;align-items:center;gap:5px;font-size:.55rem;color:var(--slate-3)"><span style="display:inline-block;width:14px;height:2px;background:#dc2626;border-radius:1px"></span> MPR</span>
+            <span style="display:flex;align-items:center;gap:5px;font-size:.55rem;color:var(--slate-3)"><span style="display:inline-block;width:14px;height:2px;background:#10b981;border-radius:1px"></span> Cumulative</span>
+            <span style="display:flex;align-items:center;gap:5px;font-size:.55rem;color:var(--slate-3)"><span style="display:inline-block;width:14px;height:1px;background:rgba(239,68,68,.4);border-radius:1px;border-top:1px dashed rgba(239,68,68,.5)"></span> 80%</span>
+          </div>
+          <!-- Stats row -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px">
+            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:7px 4px;text-align:center">
+              <div style="font-size:.8rem;font-weight:800;color:var(--white)">20</div>
+              <div style="font-size:.46rem;color:var(--slate-3);margin-top:2px">Modes</div>
+            </div>
+            <div style="background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.15);border-radius:6px;padding:7px 4px;text-align:center">
+              <div style="font-size:.8rem;font-weight:800;color:#dc2626">94.2%</div>
+              <div style="font-size:.46rem;color:var(--slate-3);margin-top:2px">X final</div>
+            </div>
+            <div style="background:rgba(22,163,74,.08);border:1px solid rgba(22,163,74,.15);border-radius:6px;padding:7px 4px;text-align:center">
+              <div style="font-size:.8rem;font-weight:800;color:#16a34a">87.5%</div>
+              <div style="font-size:.46rem;color:var(--slate-3);margin-top:2px">Y final</div>
+            </div>
+            <div style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.15);border-radius:6px;padding:7px 4px;text-align:center">
+              <div style="font-size:.8rem;font-weight:800;color:#2563eb">83.1%</div>
+              <div style="font-size:.46rem;color:var(--slate-3);margin-top:2px">Z final</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1120,7 +1229,7 @@ h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
 const T = {
   ko: {
     nav_problems:'Why Valentis', nav_values:'Value', nav_features:'기능', nav_modules:'AI 모듈', nav_demo:'Demo',
-    nav_sub_load:'하중 정의', nav_sub_material:'재료/도구', nav_sub_ai:'AI 모듈',
+    nav_sub_material:'Material', nav_sub_load:'Load Definition', nav_sub_tools:'Curve Digitizer', nav_sub_char:'Characterization', nav_sub_ai:'AI Modules',
     hero_badge:'Engineering Analysis Platform',
     hero_title:'계산부터 의사결정까지 <span class="text-gradient">하나로.</span>',
     hero_desc:'하중 조건은 Excel, 물성치는 핸드북, 결과 분석은 또 다른 툴...<br>복잡하게 나뉜 작업 속에서<br>정작 중요한 엔지니어링 판단에 집중하지 못하고 계신가요?<br><strong>Valentis</strong>가 그 시간을 돌려드립니다.',
@@ -1149,6 +1258,9 @@ const T = {
     feat2_li1:'MIL-STD-810H · IEC 61373 규격 충격·진동 하중 원클릭 생성', feat2_li2:'UBC-97 / KDS 41 내진 설계 응답 스펙트럼 자동 생성',
     feat2_li3:'변위(mm) → 가속도(g) 변환을 주파수별로 자동 처리', feat2_li4:'목표 RMS만 입력하면 PSD 프로파일을 역산',
     feat2_li5:'실측 데이터에서 바로 시뮬레이션 입력 하중을 생성',
+    feat_mass_title:'내 모델, 충분한 모드를 포함하고 있을까?', feat_mass_desc:'모달 해석 후 "모드를 몇 개까지 포함해야 하는가?"는 항상 남는 질문입니다. Mass Participation은 각 모드의 질량 참여율과 누적참여율을 즉시 시각화하여, 해석에 포함할 모드 수를 정량적으로 판단할 수 있게 합니다.',
+    feat_mass_li1:'CSV 드래그 앤 드롭으로 모달 결과 즉시 로드', feat_mass_li2:'모드별 질량 참여율 + 누적참여율 차트',
+    feat_mass_li3:'80% 미달성 시 빨간색 경고로 부족한 모드 즉시 식별', feat_mass_li4:'Dominant Mode 리포트로 핵심 모드 자동 식별',
     feat3_title:'과거 그래프도 데이터로 되살립니다', feat3_desc:'원본 데이터가 유실된 과거 보고서, 논문, 시험 성적서의 그래프가 있으신가요?<br>이미지 위에 점을 찍으면 수치 데이터로 복원됩니다.<br>재시험 없이 레거시 자료를 재활용하세요.',
     feat3_li1:'이미지(PNG/JPG)를 드래그 앤 드롭하면 바로 시작', feat3_li2:'3점 캘리브레이션으로 정확한 좌표 매핑',
     feat3_li3:'스플라인 보간으로 매끄러운 곡선 복원', feat3_li4:'CSV로 내보내어 다른 분석에 바로 활용',
@@ -1165,7 +1277,7 @@ const T = {
   },
   en: {
     nav_problems:'Why Valentis', nav_values:'Value', nav_features:'Features', nav_modules:'AI Modules', nav_demo:'Demo',
-    nav_sub_load:'Load Definition', nav_sub_material:'Material & Tools', nav_sub_ai:'AI Modules',
+    nav_sub_material:'Material', nav_sub_load:'Load Definition', nav_sub_tools:'Curve Digitizer', nav_sub_char:'Characterization', nav_sub_ai:'AI Modules',
     hero_badge:'Engineering Analysis Platform',
     hero_title:'From Calculation to Decision, <span class="text-gradient">All in One.</span>',
     hero_desc:'Loads in Excel, materials in handbooks, analysis in another tool...<br>Lost in fragmented workflows,<br>too little time left for the engineering judgment that truly matters?<br><strong>Valentis</strong> gives you that time back.',
@@ -1194,6 +1306,9 @@ const T = {
     feat2_li1:'MIL-STD-810H · IEC 61373 shock & vibration loads in one click', feat2_li2:'Auto-generate UBC-97 / KDS 41 seismic response spectra',
     feat2_li3:'Auto-convert displacement (mm) → acceleration (g) per frequency', feat2_li4:'Just enter target RMS — PSD profile is auto-calculated',
     feat2_li5:'Generate simulation input loads directly from measured data',
+    feat_mass_title:'Does my model include enough modes?', feat_mass_desc:'After modal analysis, "how many modes should I include?" is always the lingering question. Mass Participation instantly visualizes each mode\'s participation ratio and cumulative participation, so you can make a quantitative decision on the number of modes to include.',
+    feat_mass_li1:'Drag & drop CSV to instantly load modal results', feat_mass_li2:'Per-mode mass participation ratio + cumulative participation chart',
+    feat_mass_li3:'Red warning when 80% threshold is not met — spot insufficient modes instantly', feat_mass_li4:'Dominant Mode report auto-identifies the key modes',
     feat3_title:'Bring old graphs back to life as data', feat3_desc:'Lost the original data behind a report or test graph?<br>Just click points on the image to restore numerical data.<br>Reuse legacy materials without re-testing.',
     feat3_li1:'Drag & drop an image (PNG/JPG) to get started', feat3_li2:'3-point calibration for precise coordinate mapping',
     feat3_li3:'Spline interpolation for smooth curve reconstruction', feat3_li4:'Export to CSV for immediate use in other analyses',
@@ -1210,7 +1325,7 @@ const T = {
   },
   zh: {
     nav_problems:'Why Valentis', nav_values:'Value', nav_features:'功能', nav_modules:'AI 模块', nav_demo:'Demo',
-    nav_sub_load:'载荷定义', nav_sub_material:'材料/工具', nav_sub_ai:'AI 模块',
+    nav_sub_material:'Material', nav_sub_load:'Load Definition', nav_sub_tools:'Curve Digitizer', nav_sub_char:'Characterization', nav_sub_ai:'AI Modules',
     hero_badge:'Engineering Analysis Platform',
     hero_title:'从计算到决策，<span class="text-gradient">一站式平台。</span>',
     hero_desc:'载荷用Excel，材料查手册，分析又换工具...<br>在碎片化的工作流中，<br>真正重要的工程判断，还剩多少时间？<br><strong>Valentis</strong>帮您找回那些时间。',
@@ -1239,6 +1354,9 @@ const T = {
     feat2_li1:'MIL-STD-810H · IEC 61373 冲击与振动载荷一键生成', feat2_li2:'自动生成UBC-97 / KDS 41抗震设计响应谱',
     feat2_li3:'按频率自动转换位移(mm)→加速度(g)', feat2_li4:'只需输入目标RMS，自动反算PSD曲线',
     feat2_li5:'从实测数据直接生成仿真输入载荷',
+    feat_mass_title:'我的模型包含了足够的模态吗？', feat_mass_desc:'模态分析后，"应该包含多少个模态？"总是遗留的问题。Mass Participation即时可视化每个模态的质量参与率和累积参与率，让您可以定量判断需要包含的模态数量。',
+    feat_mass_li1:'拖放CSV即时加载模态分析结果', feat_mass_li2:'逐模态质量参与率 + 累积参与率图表',
+    feat_mass_li3:'未达80%阈值时红色警告——即刻识别不足的模态', feat_mass_li4:'Dominant Mode报告自动识别关键模态',
     feat3_title:'让旧图表重新变为数据', feat3_desc:'有原始数据丢失的旧报告、论文或测试报告中的图表吗？<br>在图像上点击即可恢复数值数据。<br>无需重新测试即可复用历史资料。',
     feat3_li1:'拖放图片（PNG/JPG）即可开始', feat3_li2:'三点标定实现精确坐标映射',
     feat3_li3:'样条插值实现平滑曲线重建', feat3_li4:'导出CSV，立即用于其他分析',
