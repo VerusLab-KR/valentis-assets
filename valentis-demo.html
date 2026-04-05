@@ -152,12 +152,21 @@ a{color:inherit;text-decoration:none}
 .video-info h3{font-size:.95rem;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
 .video-info p{font-size:.8rem;color:var(--slate-5);line-height:1.6}
 
-/* ── Footer ── */
-.footer{
-  background:var(--slate-9);color:var(--slate-4);
-  padding:40px 0;text-align:center;font-size:.8rem;
+/* ── Top Button ── */
+.btn-top{
+  position:fixed;bottom:32px;right:32px;z-index:800;
+  width:40px;height:40px;border-radius:10px;border:none;cursor:pointer;
+  background:#1a1f2e;color:#94a3b8;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.2);
+  opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.4,0,.2,1);
 }
-.footer .container{display:flex;flex-direction:column;align-items:center;gap:12px}
+.btn-top.visible{opacity:1;pointer-events:all}
+.btn-top:hover{background:#2563eb;color:#fff;transform:translateY(-2px);box-shadow:0 4px 16px rgba(37,99,235,.3)}
+
+/* ── Footer ── */
+.footer{background:#1a1f2e;color:#cbd5e1;padding:16px 0;font-size:12px}
+.footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .footer-logo{font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:-.02em}
 .footer-logo span{color:#60a5fa}
 
@@ -443,6 +452,8 @@ a{color:inherit;text-decoration:none}
   </div>
 </footer>
 
+<button class="btn-top" id="btnTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">&#9650;</button>
+
 <script>
 /* ── i18n ── */
 const T = {
@@ -537,6 +548,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 /* ── Navbar scroll shadow ── */
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  document.getElementById('btnTop').classList.toggle('visible', window.scrollY > 400);
 }, { passive: true });
 
 /* ── Scroll spy ── */
